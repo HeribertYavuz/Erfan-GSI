@@ -17,7 +17,7 @@ on:
         default: 'Generic'
 env:
   TELEGRAM_TO: 7069407745
-  TELEGRAM_TOKEN: ${AAGqIVb-tAsveO0xsaYSP35m2otyMkbNWww}}
+  TELEGRAM_TOKEN: ${AAGqIVb-tAsveO0xsaYSP35m2otyMkbNWww}
 
 jobs:
   build_tosasitill_GSI:
