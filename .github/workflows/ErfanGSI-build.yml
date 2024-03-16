@@ -16,7 +16,7 @@ on:
         required: true
         default: 'Generic'
 env:
-  TELEGRAM_TO: 7069407745
+  TELEGRAM_TO:
   TELEGRAM_TOKEN: 7069407745:AAGqIVb-tAsveO0xsaYSP35m2otyMkbNWww
 
 jobs:
