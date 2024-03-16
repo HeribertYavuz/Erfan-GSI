@@ -16,8 +16,8 @@ on:
         required: true
         default: 'Generic'
 env:
-  TELEGRAM_TO: 1214932938
-  TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+  TELEGRAM_TO: 7069407745
+  TELEGRAM_TOKEN: ${AAGqIVb-tAsveO0xsaYSP35m2otyMkbNWww}}
 
 jobs:
   build_tosasitill_GSI:
