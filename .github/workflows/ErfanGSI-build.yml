@@ -1,3 +1,4 @@
+
 name: ErfanGSI-build
 
 on:
@@ -6,7 +7,7 @@ on:
       ROM_URL:
         description: 'Direct link/直链'
         required: true
-        default: 'https://github.com/uwuffnik/A52s-roms/releases/download/crdroid-a15/crDroidAndroid-15.0-20241027-a52sxq-v11.0-ALPHA.zip'
+        default: 'https://mirrorbits.lineageos.org/full/sagit/20230302/lineage-20.0-20230302-nightly-sagit-signed.zip'
       REPACK_NAME:
         description: 'Compressed name/打包名称'
         required: true
@@ -16,8 +17,8 @@ on:
         required: true
         default: 'Generic'
 env:
-  TELEGRAM_TO:
-  TELEGRAM_TOKEN: 7069407745:AAGqIVb-tAsveO0xsaYSP35m2otyMkbNWww
+  TELEGRAM_TO: 1214932938
+  TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
 
 jobs:
   build_tosasitill_GSI:
@@ -67,6 +68,7 @@ jobs:
         run: |
           sudo sed -i 's/USE_MIRROR_FOR_PIP\=true/USE_MIRROR_FOR_PIP\=false/' $GITHUB_WORKSPACE/ErfanGSIs/setup.sh
           sudo bash $GITHUB_WORKSPACE/ErfanGSIs/setup.sh
+          sudo apt-get -y --purge remove "adoptopenjdk-11-hotspot"
           java -version
           pip3 install aligo
 
@@ -93,7 +95,8 @@ jobs:
             token: ${{ secrets.TELEGRAM_TOKEN }}
             message: tosasitill GSI 构建成功!
               构建 GSI 详细信息如下！
-            
+            document: ${{ github.workspace }}/ErfanGSIs/build_info.txt
+
       - name: 上传至 Github Releases
         if: ${{ github.event.inputs.ALI }} != '1'
         uses: ncipollo/release-action@v1.12.0
